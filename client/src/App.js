@@ -8,7 +8,7 @@ import { networks } from "./utils/networks";
 import contractAbi from "./contracts/contracts/Domains.sol/Domains.json";
 
 // Constants
-const TWITTER_HANDLE = "YSoenggoro";
+const TWITTER_HANDLE = "BNS_Brock";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 // Add the dmain you will be minting
 const tld = ".brock";
@@ -267,7 +267,7 @@ const App = () => {
           <header>
             <div className="left">
               <p className="title">Brock Name Service</p>
-              <p className="subtitle">Your immortal API on the blockchain!</p>
+              <p className="subtitle">Your immortal API on the Bitrock Chain!</p>
             </div>
             {/* Display a logo and wallet connection status*/}
             <div className="right">
@@ -291,8 +291,8 @@ const App = () => {
         {!currentAccount && (
           <div className="connect-wallet-container">
             <img
-              src="https://media.giphy.com/media/3ohhwytHcusSCXXOUg/giphy.gif"
-              alt="Ninja donut gif"
+              src="https://i.imgur.com/avyzV3N.jpg"
+              alt="BNS"
             />
             {/* Call the connectWallet function we just wrote when the button is clicked */}
             <button
@@ -371,7 +371,7 @@ const App = () => {
                     <div className="mint-row">
                       <a
                         className="link"
-                        href={`https://explorer.bit-rock.io/${CONTRACT_ADDRESS}/${mint.id}`}
+                        href={`https://explorer.bit-rock.io/token/${CONTRACT_ADDRESS}/instance/${mint.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
