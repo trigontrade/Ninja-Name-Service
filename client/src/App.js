@@ -10,7 +10,7 @@ import contractAbi from "./contracts/contracts/Domains.sol/Domains.json";
 // Constants
 const TWITTER_HANDLE = "YSoenggoro";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-// Add the domain you will be minting
+// Add the dmain you will be minting
 const tld = ".brock";
 const CONTRACT_ADDRESS = "0x30bCD58beba88576B3b57ff9df4C9394baf66852";
 
