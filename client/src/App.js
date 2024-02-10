@@ -11,7 +11,7 @@ import contractAbi from "./contracts/contracts/Domains.sol/Domains.json";
 const TWITTER_HANDLE = "YSoenggoro";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 // Add the domain you will be minting
-const tld = ".ninja";
+const tld = ".brock";
 const CONTRACT_ADDRESS = "0xaC0B3A99a91181d0C420DA3F8512Fa919216501f";
 
 const App = () => {
@@ -98,9 +98,9 @@ const App = () => {
       return;
     }
     // Calculate price based on length of domain (change this to match your contract)
-    // 3 chars = 0.5 MATIC, 4 chars = 0.3 MATIC, 5 or more = 0.1 MATIC
+    // 4 chars = 100 MATIC, 4 chars = 0.3 MATIC, 5 or more = 0.1 MATIC
     const price =
-      domain.length === 3 ? "0.5" : domain.length === 4 ? "0.3" : "0.1";
+      domain.length === 4 ? "100" : domain.length === 5 ? "50" : "5";
     console.log("Minting domain", domain, "with price", price);
     try {
       const { ethereum } = window;
@@ -123,7 +123,7 @@ const App = () => {
         // Check if the transaction was successfully completed
         if (receipt.status === 1) {
           console.log(
-            "Domain minted! https://mumbai.polygonscan.com/tx/" + tx.hash
+            "Domain minted! https://explorer.bit-rock.io/tx/" + tx.hash
           );
 
           // Set the record for the domain
@@ -131,7 +131,7 @@ const App = () => {
           await tx.wait();
 
           console.log(
-            "Record set! https://mumbai.polygonscan.com/tx/" + tx.hash
+            "Record set! https://explorer.bit-rock.io/tx/" + tx.hash
           );
 
           setRecord("");
@@ -183,7 +183,7 @@ const App = () => {
         // Try to switch to the Mumbai testnet
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x13881" }], // Check networks.js for hexadecimal network ids
+          params: [{ chainId: "0x1c03" }], // Check networks.js for hexadecimal network ids
         });
       } catch (error) {
         // This error code means that the chain we want has not been added to MetaMask
@@ -194,15 +194,15 @@ const App = () => {
               method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: "0x13881",
-                  chainName: "Polygon Mumbai Testnet",
-                  rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+                  chainId: "0x1c03",
+                  chainName: "Bitrock Mainnet",
+                  rpcUrls: ["https://connect.bit-rock.io"],
                   nativeCurrency: {
-                    name: "Mumbai Matic",
-                    symbol: "MATIC",
+                    name: "Bitrock",
+                    symbol: "BROCK",
                     decimals: 18,
                   },
-                  blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                  blockExplorerUrls: ["https://explorer.bit-rock.io/"],
                 },
               ],
             });
@@ -238,7 +238,7 @@ const App = () => {
 
         let tx = await contract.setRecord(domain, record);
         await tx.wait();
-        console.log("Record set https://mumbai.polygonscan.com/tx/" + tx.hash);
+        console.log("Record set https://explorer.bit-rock.io/tx/" + tx.hash);
 
         fetchMints();
         setRecord("");
@@ -255,7 +255,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (network === "Polygon Mumbai Testnet") {
+    if (network === "Bitrock Mainnet") {
       fetchMints();
     }
   }, [currentAccount, network]);
@@ -266,7 +266,7 @@ const App = () => {
         <div className="header-container">
           <header>
             <div className="left">
-              <p className="title">🐱‍👤 Ninja Name Service</p>
+              <p className="title">Brock Name Service</p>
               <p className="subtitle">Your immortal API on the blockchain!</p>
             </div>
             {/* Display a logo and wallet connection status*/}
@@ -304,9 +304,9 @@ const App = () => {
           </div>
         )}
         {currentAccount &&
-          (network !== "Polygon Mumbai Testnet" ? (
+          (network !== "Bitrock Mainnet" ? (
             <div className="connect-wallet-container">
-              <p>Please connect to the Polygon Mumbai Testnet</p>
+              <p>Please connect to the Bitrock</p>
               <button
                 className="cta-button mint-button"
                 onClick={switchNetwork}
@@ -371,7 +371,7 @@ const App = () => {
                     <div className="mint-row">
                       <a
                         className="link"
-                        href={`https://testnets.opensea.io/assets/mumbai/${CONTRACT_ADDRESS}/${mint.id}`}
+                        href={`https://explorer.bit-rock.io/${CONTRACT_ADDRESS}/${mint.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
