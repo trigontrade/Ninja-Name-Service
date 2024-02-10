@@ -291,7 +291,7 @@ const App = () => {
         {!currentAccount && (
           <div className="connect-wallet-container">
             <img
-              src="https://i.imgur.com/avyzV3N.jpg"
+              src="https://i.imgur.com/7qVLXZs.png"
               alt="BNS"
             />
             {/* Call the connectWallet function we just wrote when the button is clicked */}
