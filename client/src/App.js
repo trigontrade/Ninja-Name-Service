@@ -326,11 +326,15 @@ const App = () => {
                 <p className="tld"> {tld} </p>
               </div>
 
+              {records && (
+          <>
+            <span id="addr" className="record">
               <input
                 type="text"
-                value={record}
-                placeholder="whats ur ninja power?"
-                onChange={(e) => setRecord(e.target.value)}
+                value={records.address}
+                placeholder="whats ur ninja power"
+                readOnly={true}
+                className="readonly"
               />
               {editing ? (
                 <div className="button-container">
