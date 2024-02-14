@@ -1,5 +1,5 @@
 const networks = {
-  "0x1c03": "Bitrock Mainnet",
+  "0x3F651C14": "Leopardkeen",
 }
 
 export { networks };
