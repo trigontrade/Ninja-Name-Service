@@ -11,7 +11,7 @@ import contractAbi from "./contracts/contracts/Domains.sol/Domains.json";
 const TWITTER_HANDLE = "BNS_Brock";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 // Add the dmain you will be minting
-const tld = ".brock";
+const tld = ".keen";
 const CONTRACT_ADDRESS = "0x30bCD58beba88576B3b57ff9df4C9394baf66852";
 
 const App = () => {
@@ -183,7 +183,7 @@ const App = () => {
         // Try to switch to the Mumbai testnet
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x1c03" }], // Check networks.js for hexadecimal network ids
+          params: [{ chainId: "0x3F651C14" }], // Check networks.js for hexadecimal network ids
         });
       } catch (error) {
         // This error code means that the chain we want has not been added to MetaMask
@@ -194,15 +194,15 @@ const App = () => {
               method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: "0x1c03",
-                  chainName: "Bitrock Mainnet",
-                  rpcUrls: ["https://connect.bit-rock.io"],
+                  chainId: "0x3F651C14",
+                  chainName: "Leopardkeen",
+                  rpcUrls: ["https://leopardkeen-rpc.eu-north-2.gateway.fm"],
                   nativeCurrency: {
-                    name: "Bitrock",
-                    symbol: "BROCK",
+                    name: "Ethereum",
+                    symbol: "ETH",
                     decimals: 18,
                   },
-                  blockExplorerUrls: ["https://explorer.bit-rock.io/"],
+                  blockExplorerUrls: ["https://leopardkeen-blockscout.eu-north-2.gateway.fm/"],
                 },
               ],
             });
@@ -238,7 +238,7 @@ const App = () => {
 
         let tx = await contract.setRecord(domain, record);
         await tx.wait();
-        console.log("Record set https://explorer.bit-rock.io/tx/" + tx.hash);
+        console.log("Record set https://leopardkeen-blockscout.eu-north-2.gateway.fm/tx/" + tx.hash);
 
         fetchMints();
         setRecord("");
@@ -291,7 +291,7 @@ const App = () => {
         {!currentAccount && (
           <div className="connect-wallet-container">
             <img
-              src="https://i.imgur.com/7qVLXZs.png"
+              src="https://imgur.com/a/ZKTH5dT"
               alt="BNS"
             />
             {/* Call the connectWallet function we just wrote when the button is clicked */}
@@ -304,9 +304,9 @@ const App = () => {
           </div>
         )}
         {currentAccount &&
-          (network !== "Bitrock Mainnet" ? (
+          (network !== "leopardkeen" ? (
             <div className="connect-wallet-container">
-              <p>Please connect to the Bitrock</p>
+              <p>Please connect to the keen chain</p>
               <button
                 className="cta-button mint-button"
                 onClick={switchNetwork}
@@ -371,7 +371,7 @@ const App = () => {
                     <div className="mint-row">
                       <a
                         className="link"
-                        href={`https://explorer.bit-rock.io/token/${CONTRACT_ADDRESS}/instance/${mint.id}`}
+                        href={`https://leopardkeen-blockscout.eu-north-2.gateway.fm//token/${CONTRACT_ADDRESS}/instance/${mint.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
