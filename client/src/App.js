@@ -12,7 +12,7 @@ const TWITTER_HANDLE = "BNS_Brock";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 // Add the dmain you will be minting
 const tld = ".keen";
-const CONTRACT_ADDRESS = "0x30bCD58beba88576B3b57ff9df4C9394baf66852";
+const CONTRACT_ADDRESS = "0xbfbe13f2bbc1ADF5Fd8c36D85ffca2032c285421";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
